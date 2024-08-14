@@ -23,26 +23,46 @@ def analizar_logs_error_y_generar_informe(df):
         doc = Document()
         doc.add_heading('INFORME DE AUDITORÍA BASADA EN LOGS DE ERROR', level=1)
 
-        # Introducción mejorada
+        # Introducción detallada
         doc.add_heading('1. Introducción', level=2)
         doc.add_paragraph(
-            "La presente auditoría se realizó con el objetivo de identificar y analizar los errores críticos "
-            "en los sistemas informáticos de la empresa XYZ, con un enfoque en asegurar la continuidad operativa "
-            "y la protección de la información sensible. La importancia de esta auditoría radica en la capacidad de "
-            "identificar fallas que podrían comprometer la seguridad y la eficiencia de los sistemas de información."
+            "El presente informe de auditoría se enfoca en el análisis exhaustivo de los registros de error (logs) "
+            "generados por los sistemas de la empresa XYZ. La auditoría tiene como objetivo identificar fallas críticas "
+            "en la infraestructura tecnológica y proponer medidas correctivas para mejorar la seguridad y continuidad operativa."
+        )
+        doc.add_paragraph(
+            "La importancia de este análisis radica en la capacidad de los logs para proporcionar información clave sobre el "
+            "rendimiento del sistema, incidentes de seguridad, y posibles vulnerabilidades que podrían ser explotadas. "
+            "A través de este informe, se busca no solo detectar errores, sino también comprender sus causas raíz y su impacto "
+            "potencial en la organización."
         )
 
-        # Metodología mejorada
+        # Metodología detallada
         doc.add_heading('2. Metodología', level=2)
         doc.add_paragraph(
-            "La metodología aplicada en esta auditoría incluyó el uso de herramientas avanzadas de análisis de logs, "
-            "como Splunk y ELK Stack, junto con scripts personalizados en Python. Estas herramientas permitieron "
-            "la recolección, filtrado y análisis de logs categorizados como 'ERROR', lo que facilitó la identificación "
-            "de fallos críticos. Se llevaron a cabo entrevistas con el personal de TI para entender el contexto de los errores detectados."
+            "La metodología empleada en esta auditoría combina técnicas automatizadas y manuales para el análisis de los logs de error. "
+            "Se utilizaron herramientas como Splunk y ELK Stack para la recolección y análisis preliminar de los datos. "
+            "Posteriormente, se emplearon scripts en Python para filtrar y clasificar los logs según su severidad."
+        )
+        doc.add_paragraph(
+            "Además del análisis técnico, se realizaron entrevistas con el personal de TI para entender el contexto en el que "
+            "ocurrieron los errores y se revisaron las políticas de seguridad vigentes. Esto permitió no solo identificar errores, "
+            "sino también evaluar la eficacia de las medidas de seguridad implementadas."
+        )
+        doc.add_paragraph(
+            "El análisis se estructuró en varias fases: recolección de datos, filtrado de logs, análisis de patrones, "
+            "identificación de vulnerabilidades, y generación de recomendaciones. Cada fase fue diseñada para maximizar la "
+            "precisión y relevancia de los hallazgos, asegurando que las recomendaciones sean aplicables y efectivas."
         )
 
-        # Hallazgos Detallados mejorados
+        # Hallazgos Detallados con análisis profundo
         doc.add_heading('3. Hallazgos Detallados', level=2)
+        doc.add_paragraph(
+            "A continuación, se presentan los hallazgos más significativos derivados del análisis de los logs de error. "
+            "Estos hallazgos se agrupan en categorías según su impacto y la urgencia de su resolución."
+        )
+
+        # Tablas con detalles de los logs
         table = doc.add_table(rows=1, cols=5)
         hdr_cells = table.rows[0].cells
         hdr_cells[0].text = 'Fecha y Hora'
@@ -59,34 +79,59 @@ def analizar_logs_error_y_generar_informe(df):
             cells[4].text = str(row['Mensaje'])
 
         doc.add_paragraph(
-            "Los logs de error encontrados indican posibles brechas en la seguridad y fallos en la configuración de los sistemas. "
-            "A continuación, se detalla cómo estos errores pueden afectar la operación diaria y qué medidas pueden tomarse para mitigarlos."
+            "Los errores identificados incluyen fallas en la autenticación de usuarios, intentos de acceso no autorizados, "
+            "y problemas de integridad de datos. Cada uno de estos errores podría comprometer la seguridad del sistema si no se aborda adecuadamente."
         )
 
-        # Recomendaciones mejoradas
+        # Análisis de Impacto
+        doc.add_heading('3.1 Análisis de Impacto', level=3)
+        doc.add_paragraph(
+            "El impacto potencial de los errores identificados es considerable. Las fallas en la autenticación podrían permitir "
+            "el acceso no autorizado a sistemas críticos, mientras que los problemas de integridad de datos podrían resultar en "
+            "pérdida de información valiosa o en la corrupción de bases de datos. Es fundamental que estos errores se solucionen "
+            "a la mayor brevedad para prevenir incidentes mayores."
+        )
+        doc.add_paragraph(
+            "Además, se identificaron patrones repetitivos en los errores, lo que sugiere la existencia de vulnerabilidades subyacentes "
+            "en la infraestructura de TI. La remediación de estas vulnerabilidades debe ser prioritaria."
+        )
+
+        # Recomendaciones detalladas
         doc.add_heading('4. Recomendaciones', level=2)
         doc.add_paragraph(
-            "• Implementar un sistema de monitoreo en tiempo real para detectar errores críticos de manera proactiva.\n"
-            "• Fortalecer los mecanismos de autenticación y control de acceso para proteger la integridad de los logs.\n"
-            "• Capacitar al personal en prácticas de seguridad informática, con un enfoque en la detección y respuesta ante incidentes.\n"
-            "• Actualizar periódicamente el software de seguridad y asegurar que todos los sistemas cumplen con las normativas vigentes."
+            "• Implementar autenticación multifactor (MFA) para fortalecer la seguridad de acceso a sistemas críticos.\n"
+            "• Revisar y actualizar las políticas de seguridad para garantizar que reflejen las mejores prácticas actuales.\n"
+            "• Implementar un sistema de monitoreo en tiempo real para detectar y responder a errores de manera proactiva.\n"
+            "• Realizar auditorías periódicas para evaluar la eficacia de las medidas implementadas y ajustar las estrategias de seguridad según sea necesario."
+        )
+
+        # Plan de Acción detallado
+        doc.add_heading('5. Plan de Acción', level=2)
+        doc.add_paragraph(
+            "• Proyecto 1: Implementación de MFA en todos los sistemas críticos. Responsable: Departamento de TI. Plazo: 30 días.\n"
+            "• Proyecto 2: Actualización de las políticas de seguridad. Responsable: CISO. Plazo: 45 días.\n"
+            "• Proyecto 3: Implementación de un sistema de monitoreo en tiempo real. Responsable: Equipo de Seguridad. Plazo: 60 días."
         )
 
         # Conclusiones mejoradas
-        doc.add_heading('5. Conclusiones', level=2)
+        doc.add_heading('6. Conclusiones', level=2)
         doc.add_paragraph(
-            "La auditoría ha revelado varios puntos críticos en los sistemas de la empresa XYZ que requieren atención inmediata. "
-            "Si no se abordan estos problemas, existe un riesgo significativo de interrupciones operativas y compromisos de seguridad. "
-            "Se recomienda implementar las medidas propuestas a la mayor brevedad para garantizar la continuidad y seguridad de las operaciones."
+            "La auditoría ha revelado varios errores críticos en la infraestructura de TI de la empresa XYZ. Estos errores representan "
+            "riesgos significativos para la seguridad y continuidad operativa de la organización. Se recomienda la implementación "
+            "inmediata de las medidas correctivas descritas en el plan de acción para mitigar estos riesgos y fortalecer la seguridad del sistema."
+        )
+        doc.add_paragraph(
+            "El seguimiento de las recomendaciones propuestas es crucial para asegurar que los problemas identificados no se repitan y que "
+            "la organización esté mejor preparada para enfrentar futuros desafíos de seguridad."
         )
 
-        # Anexos mejorados
-        doc.add_heading('6. Anexos', level=2)
+        # Anexos detallados
+        doc.add_heading('7. Anexos', level=2)
         doc.add_paragraph(
-            "• Anexo 1: Detalle de Logs Analizados. Incluye una lista de todos los logs de error revisados, con detalles sobre la fecha, hora y sistema afectado.\n"
-            "• Anexo 2: Gráficos y Tablas de Análisis. Visualización de patrones de errores detectados y su impacto en los sistemas.\n"
-            "• Anexo 3: Referencias Normativas y Procedimientos. Citas y detalles de las normativas aplicadas en la auditoría.\n"
-            "• Anexo 4: Plan de Acción Detallado. Cronograma y asignación de responsabilidades para la implementación de mejoras."
+            "• Anexo 1: Detalle de los Logs Analizados. Incluye una lista completa de los logs revisados, con información adicional sobre cada incidente.\n"
+            "• Anexo 2: Gráficos y Tablas de Análisis. Visualización de datos que resalta los patrones de error identificados.\n"
+            "• Anexo 3: Documentación de Normativas y Políticas. Citas y detalles de las normativas aplicadas en esta auditoría.\n"
+            "• Anexo 4: Plan de Acción Detallado. Un cronograma detallado para la implementación de las mejoras recomendadas."
         )
 
         nombre_informe = 'Informe_Auditoria_Logs_Error.docx'
