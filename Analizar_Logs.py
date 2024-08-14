@@ -15,6 +15,7 @@ def analizar_logs_error_y_generar_informe(df):
         nombre_archivo_errores = 'Errores_Detectados.xlsx'
         errores_df.to_excel(nombre_archivo_errores, index=False)
         st.success(f"Archivo Excel con registros de ERROR generado exitosamente en {nombre_archivo_errores}.")
+        st.download_button(label="Descargar Excel de Errores", data=open(nombre_archivo_errores, 'rb'), file_name=nombre_archivo_errores)
 
         doc = Document()
         doc.add_heading('Informe Técnico de Auditoría de Sistemas: Análisis de Logs de Error', level=1)
@@ -54,8 +55,10 @@ def analizar_logs_error_y_generar_informe(df):
             "de la actividad en la red y capacitar a los usuarios en prácticas de seguridad "
             "informática. Es crucial actualizar el software de seguridad a la última versión disponible.\n")
 
-        doc.save('Informe_Auditoria_Logs_Error.docx')
-        st.success("Informe generado exitosamente en Informe_Auditoria_Logs_Error.docx.")
+        nombre_informe = 'Informe_Auditoria_Logs_Error.docx'
+        doc.save(nombre_informe)
+        st.success(f"Informe generado exitosamente en {nombre_informe}.")
+        st.download_button(label="Descargar Informe de Auditoría", data=open(nombre_informe, 'rb'), file_name=nombre_informe)
 
 # Interfaz con Streamlit
 st.title("Análisis de Logs de Error y Generación de Informe de Auditoría")
