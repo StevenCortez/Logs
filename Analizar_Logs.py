@@ -3,7 +3,7 @@ from docx import Document
 from docx.shared import Pt
 import streamlit as st
 
-defanalizar_logs_error_y_generar_informe(df):
+def analizar_logs_error_y_generar_informe(df):
     if'Severidad'notin df.columns:
         st.error("La columna 'Severidad' no se encuentra en el archivo.")
         return
