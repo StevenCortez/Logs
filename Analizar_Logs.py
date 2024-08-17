@@ -161,8 +161,22 @@ def analizar_logs_error_y_generar_informe(df):
 # Interfaz con Streamlit
 st.title("Análisis de Logs de Error y Generación de Informe de Auditoría")
 
+# Opción para descargar la plantilla antes de subir el archivo de logs
+st.header("Descargar Plantilla")
+st.write("Antes de cargar su archivo de logs, puede descargar una plantilla de ejemplo.")
+
+# Ruta relativa al archivo PLANTILLA LOGS.xlsx en la misma carpeta que el script
+ruta_plantilla = "PLANTILLA LOGS.xlsx"
+
+try:
+    with open(ruta_plantilla, "rb") as plantilla:
+        st.download_button(label="Descargar Plantilla de Logs", data=plantilla, file_name="PLANTILLA LOGS.xlsx")
+except FileNotFoundError:
+    st.error("La plantilla no se encontró. Asegúrate de que el archivo esté disponible en la ruta especificada.")
+
+# Cargar el archivo de logs
 archivo_subido = st.file_uploader("Cargue su archivo de Logs", type=["xlsx"])
 
 if archivo_subido is not None:
     df = pd.read_excel(archivo_subido)
-    analizar_logs_error_y_generar_informe(df) 
+    analizar_logs_error_y_generar_informe(df)
